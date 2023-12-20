@@ -1,4 +1,33 @@
 .brd {
   border: 1px solid $borderColor;
-  padding: 10px;
+  padding: 6px;
+}
+// центровка содержимого ячейки
+.dispFRC {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.activ-b {
+  background-color: $selectedCellColor;
+}
+
+.inactive-b {
+  //   background-color: $lockedBtnColor;
+  background-color: $mainBackground;
+}
+.opacity {
+  opacity: 0;
+}
+.hide {
+  display: none !important;
+}
+.sel-cell {
+  background-color: $selectedCellColor;
+}
+
+.cp {
+  cursor: pointer;
 }

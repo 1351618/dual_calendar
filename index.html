@@ -8,9 +8,154 @@
   </head>
   <body class="body">
     <main class="main">
-      <div class="date-from brd">ДАТА ОТ ДД.ММ.ГГГГ</div>
-      <div class="date-to brd">ДАТА ОТ ДД.ММ.ГГГГ</div>
+      <div class="calendars">
+        <!--* календарь дата от -->
+        <div class="calendar-date-from">
+          <!-- --------- -->
+          <section class="date-from__info brd dispFRC inactive-b">
+            <div class="date-from__content dispFRC">
+              <span>ДАТА ОТ</span>
+              <p>ДД.ММ.ГГГГ</p>
+              <img src="./src/img/note.svg" alt="" />
+            </div>
+            <button class="opacity">
+              &#10005;
+              <p>Очистить поле?</p>
+            </button>
+          </section>
+          <!-- --------- -->
+          <section class="date-from__year brd dispFRC">
+            <button class="date-from__year_left cp">
+              <img src="./src/img/left-arrow.svg" alt="" />
+            </button>
+            <figure class="cp">
+              <p>Выберите год &nbsp;</p>
+              <img src="./src/img/down-arrow.svg" alt="" />
+            </figure>
+
+            <button class="date-from__year_right cp">
+              <img src="./src/img/right-arrow.svg" alt="" />
+            </button>
+            <div class="year-choice brd hide"><!-- <p>2024</p> --></div>
+          </section>
+          <!-- --------- -->
+          <section class="date-from__month brd dispFRC">
+            <button class="date-from__month_left cp">
+              <img src="./src/img/left-arrow.svg" alt="" />
+            </button>
+            <figure class="cp">
+              <p class="cp">Выберите месяц &nbsp;</p>
+              <img src="./src/img/down-arrow.svg" alt="" />
+            </figure>
+
+            <button class="date-from__month_right cp">
+              <img src="./src/img/right-arrow.svg" alt="" />
+            </button>
+            <div class="month-choice hide cp">
+              <p>Январь</p>
+              <p>Февраль</p>
+              <p>Март</p>
+              <p>Апрель</p>
+              <p>Май</p>
+              <p>Июнь</p>
+              <p>Июль</p>
+              <p>Август</p>
+              <p>Сентябрь</p>
+              <p>Октябрь</p>
+              <p>Ноябрь</p>
+              <p>Декабрь</p>
+            </div>
+          </section>
+
+          <div class="days-choice hide">
+            <div class="days-choice__days">
+              <p>Пн</p>
+              <p>Вт</p>
+              <p>Ср</p>
+              <p>Чт</p>
+              <p>Пт</p>
+              <p>Сб</p>
+              <p>Вс</p>
+            </div>
+            <div class="days-choice__num"><!-- <p>31</p> --></div>
+          </div>
+        </div>
+        <!-- --------- -->
+        <!--* календарь дата до -->
+        <div class="calendar-date-from">
+          <!-- --------- -->
+          <section class="date-from__info brd dispFRC inactive-b">
+            <div class="date-from__content dispFRC">
+              <span>ДАТА ОТ</span>
+              <p>ДД.ММ.ГГГГ</p>
+              <img src="./src/img/note.svg" alt="" />
+            </div>
+            <button class="opacity">
+              &#10005;
+              <p>Очистить поле?</p>
+            </button>
+          </section>
+          <!-- --------- -->
+          <section class="date-from__year brd dispFRC">
+            <button><img src="./src/img/left-arrow.svg" alt="" /></button>
+            <figure class="cp">
+              <p>Выберите год &nbsp;</p>
+              <img src="./src/img/down-arrow.svg" alt="" />
+            </figure>
+
+            <button><img src="./src/img/right-arrow.svg" alt="" /></button>
+            <div class="year-choice brd hide"><!-- <p>2024</p> --></div>
+          </section>
+          <!-- --------- -->
+          <section class="date-from__month brd dispFRC">
+            <button class="date-from__month_left cp">
+              <img src="./src/img/left-arrow.svg" alt="" />
+            </button>
+            <figure class="cp">
+              <p class="cp">Выберите месяц &nbsp;</p>
+              <img src="./src/img/down-arrow.svg" alt="" />
+            </figure>
+
+            <button class="date-from__month_right cp">
+              <img src="./src/img/right-arrow.svg" alt="" />
+            </button>
+            <div class="month-choice hide cp">
+              <p>Январь</p>
+              <p>Февраль</p>
+              <p>Март</p>
+              <p>Апрель</p>
+              <p>Май</p>
+              <p>Июнь</p>
+              <p>Июль</p>
+              <p>Август</p>
+              <p>Сентябрь</p>
+              <p>Октябрь</p>
+              <p>Ноябрь</p>
+              <p>Декабрь</p>
+            </div>
+          </section>
+
+          <div class="days-choice hide">
+            <div class="days-choice__days">
+              <p>Пн</p>
+              <p>Вт</p>
+              <p>Ср</p>
+              <p>Чт</p>
+              <p>Пт</p>
+              <p>Сб</p>
+              <p>Вс</p>
+            </div>
+            <div class="days-choice__num"><!-- <p>31</p> --></div>
+          </div>
+        </div>
+      </div>
+      <!-- сброс применить -->
+      <section class="reset-apply brd dispFRC">
+        <button>сброс</button>
+        <button>применить</button>
+      </section>
     </main>
-    <script src="./src/js/index.js"></script>
+    <script src="./src/js/index.js" type="module"></script>
+    <script src="./src/js/styles.js" type="module"></script>
   </body>
 </html>

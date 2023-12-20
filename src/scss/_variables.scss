@@ -2,9 +2,13 @@ $pageBackground: linear-gradient(45deg, #141414 15%, #343434, #141414 85%);
 
 $mainBackground: #f0f0f0; //фон страницы
 $lainColor: #bbc2c7; //фон календаря
-$selectedCellColor: #2879ff; //цвет выбрвннной ячейки
+$selectedCellColor: #d4f6ff; //цвет выбрвннной ячейки
 $activeBtnColor: #2879ff; //цвет активной  кнопки
 $inactiveFieldColor: #f6f6f6; //цвет не активного поля
 $lockedBtnColor: #b2b4b4; // цвет заблокированной кнопки
 $selectedRangeColor: #d4f6ff; // цвет выбранного диапазона
 $borderColor: #d7dbde; // цвет рамки
+$textColorMain: #989e9e; // стандартный текст
+$textColorNotActive: #b3b5b4; // не активный текст
+
+$boxShadov: 0px 0px 6px #b3b5b49c;

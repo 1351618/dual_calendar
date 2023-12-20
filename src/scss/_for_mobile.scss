@@ -1,0 +1,8 @@
+// @import "./variables";
+// @import "./templates";
+
+@media (max-width: 750px) {
+  .calendars {
+    flex-direction: column;
+  }
+}
