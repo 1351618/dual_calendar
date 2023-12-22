@@ -15,11 +15,14 @@
 }
 
 .inactive-b {
-  //   background-color: $lockedBtnColor;
   background-color: $mainBackground;
+}
+.active-b {
+  background-color: $activeCellColor;
 }
 .opacity {
   opacity: 0;
+  pointer-events: none;
 }
 .hide {
   display: none !important;

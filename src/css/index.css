@@ -19,8 +19,13 @@
   background-color: #f0f0f0;
 }
 
+.active-b {
+  background-color: #fff;
+}
+
 .opacity {
   opacity: 0;
+  pointer-events: none;
 }
 
 .hide {
@@ -70,28 +75,16 @@ body {
   justify-content: center;
 }
 
-.date-from button {
-  height: 25px;
-  width: 25px;
-  border: none;
-}
-
-.date-to button {
-  height: 25px;
-  width: 25px;
-  border: none;
-}
-
-.date-from__info button {
+.calendar__full-date button {
   border: none;
   height: 40px;
   width: 30px;
-  background-color: #d4f6ff;
+  background-color: unset;
   font-size: 21px;
   font-weight: lighter;
   position: relative;
 }
-.date-from__info button p {
+.calendar__full-date button p {
   position: absolute;
   z-index: 10;
   background-color: #d4f6ff;
@@ -102,13 +95,46 @@ body {
   display: none;
   transform: translateX(-40%);
 }
-.date-from__info button:hover {
+.calendar__full-date button:hover {
   color: #fff;
   background-color: #2879ff;
 }
-.date-from__info button:hover p {
+.calendar__full-date button:hover p {
   display: block;
   color: #989e9e;
+}
+
+.date-to button {
+  height: 25px;
+  width: 25px;
+  border: none;
+}
+
+.calendar__full-date_inputs {
+  display: flex;
+  width: 100px;
+  align-items: center;
+}
+.calendar__full-date_inputs input {
+  border: none;
+  height: 35px;
+  background-color: unset;
+  font-size: 16px;
+  color: #989e9e;
+  text-align: center;
+}
+.calendar__full-date_inputs input:focus {
+  outline: none;
+  border: none;
+}
+.calendar__full-date_inputs input:first-child {
+  width: 25px;
+}
+.calendar__full-date_inputs input:nth-child(3) {
+  width: 25px;
+}
+.calendar__full-date_inputs input:nth-child(5) {
+  width: 40px;
 }
 
 .date-from__content {
@@ -121,6 +147,7 @@ body {
 }
 .date-from__content span {
   color: #989e9e;
+  text-wrap: nowrap;
 }
 .date-from__content p {
   color: #b3b5b4;
@@ -145,6 +172,7 @@ body {
   justify-content: space-between;
   color: #2879ff;
   position: relative;
+  background-color: #fff;
 }
 .date-from__year button {
   width: 24px;
@@ -201,6 +229,7 @@ body {
   justify-content: space-between;
   color: #2879ff;
   position: relative;
+  background-color: #fff;
 }
 .date-from__month button {
   width: 24px;

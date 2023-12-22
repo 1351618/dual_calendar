@@ -1,65 +1,47 @@
-const DateFromDiv = document.querySelector(".date-from");
-const DateToDiv = document.querySelector(".date-to");
-const daysChoice = document.querySelector(".days-choice");
-const daysChoiceNum = document.querySelector(".days-choice__num");
-const yearChoice = document.querySelector(".year-choice");
-const dateFromYear = document.querySelector(".date-from__year figure");
-const dateFromYearP = document.querySelector(".date-from__year figure p");
-const dateFromYearLeftBtn = document.querySelector(".date-from__year_left");
-const dateFromYearRightBtn = document.querySelector(".date-from__year_right");
-const dateFromMonth = document.querySelector(".date-from__month figure");
-const dateFromMonthP = document.querySelector(".date-from__month figure p");
-const monthElements = document.querySelectorAll(".month-choice p");
-const monthChoice = document.querySelector(".month-choice");
-const dateFromMonthLeftBtn = document.querySelector(".date-from__month_left");
-const dateFromMonthRightBtn = document.querySelector(".date-from__month_right");
-const dateFromContent = document.querySelector(".date-from__content p");
+// Импортируем массивы
+import {
+  DataYear,
+  Months,
+  DaysOfWeek,
+  DataDay,
+  AmountOfDays,
+} from "./static_data.js";
+import {
+  DateFromDiv,
+  DateToDiv,
+  daysChoice,
+  daysChoiceNum,
+  yearChoice,
+  dateFromYear,
+  dateFromYearP,
+  dateFromYearLeftBtn,
+  dateFromYearRightBtn,
+  dateFromMonth,
+  dateFromMonthP,
+  monthElements,
+  monthChoice,
+  dateFromMonthLeftBtn,
+  dateFromMonthRightBtn,
+  dateFromContent,
+  dateFromInfoBtn,
+  dateFromContentInput,
+  dateFromDayInp,
+  dateFromMonthInp,
+  dateFromYearInp,
+} from "./variables.js";
 
-// данные дял позиционирования
-//? диапазон лет
-const DataYear = [
-  2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012,
-  2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999,
-  1998, 1997, 1996,
-];
-//?месяца
-const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
-];
-//? для позицюотрисовки 1 дня недели
-const daysOfWeek = {
-  Вс: 0,
-  Пн: 1,
-  Вт: 2,
-  Ср: 3,
-  Чт: 4,
-  Пт: 5,
-  Сб: 6,
+// ∰  функция для записи в в поля дат ∰
+////  в какой тег / из какого обьекта / какой элемент обьекта
+function dateEntry(inputW, preparOBG, num) {
+  inputW.value = preparOBG[num];
+}
+// 📗  предварительные данные для отрисовки 📗
+// первый календарь дата от
+let preparationFrom = {
+  prepDay: "",
+  prepMonth: "",
+  prepYear: "",
 };
-//? дни недели
-const dataDay = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-  23, 24, 25, 26, 27, 28, 29, 30, 31,
-];
-//? обрезка лишних дней
-const amountOfDays = {
-  31: 0,
-  30: 1,
-  29: 2,
-  28: 3,
-};
-
 //переменные
 //* календарь от
 //индыкс года
@@ -67,17 +49,48 @@ let yearIndex = 0;
 // индыкс месяца
 let month = 0;
 
+// 📗  поле для ввода даты в ручную 📗
+
+// функция для отслеживания ввода даты в импутах
+function restrictInput(
+  input,
+  maxLength,
+  minValue,
+  maxValue,
+  preparationObj,
+  dataStr
+) {
+  input.addEventListener("input", function (event) {
+    this.value = this.value.replace(/[^\d]/g, "").slice(0, maxLength);
+    if (this.value !== "") {
+      this.value = Math.min(Math.max(minValue, this.value), maxValue);
+    }
+    console.log(this.value, "строка 63");
+    preparationObj[dataStr] = this.value;
+
+    console.log(preparationFrom);
+  });
+}
+// ! надо добавить переход таб на след поле
+// пердаем инпуты с данными (импут, кол-во цифр, мин число, макс число, куда записываем, что записываем)
+restrictInput(dateFromDayInp, 2, 1, 31, preparationFrom, "prepDay");
+restrictInput(dateFromMonthInp, 2, 1, 12, preparationFrom, "prepMonth");
+restrictInput(dateFromYearInp, 4, 1, 3000, preparationFrom, "prepYear");
+
+// 📗  ---- 📗
+
 // отрисовка название месяца
 function monthDefinitions() {
   firstDayMonth(DataYear[yearIndex], month - 1);
   dateFromMonthP.textContent =
-    month === 0 ? "Выберите месяц" : months[month - 1];
-  //проверка на наличие года и месяца - только потом показ
+    month === 0 ? "Выберите месяц" : Months[month - 1];
+  //проверка на наличие года и месяца - только потом показ дней
   if (yearIndex != 0 && month != 0) {
     daysChoice.classList.remove("hide");
   } else {
     daysChoice.classList.add("hide");
   }
+  console.log("отрисовка название месяца");
 }
 
 //дата сегодня
@@ -95,7 +108,9 @@ function add_0(num) {
 // отрисовка выбранного года
 function drawSelectYear(component, year) {
   component.textContent = year;
-  console.log(year, " записан в поле года");
+  preparationFrom.prepYear = year;
+  console.log(preparationFrom, " записан в поле года");
+  dateEntry(dateFromYearInp, preparationFrom, "prepYear");
 }
 // показать скрыть выбор года
 dateFromYear.addEventListener("click", function () {
@@ -144,8 +159,14 @@ dateFromMonth.addEventListener("click", function () {
 Array.from(monthElements).forEach((monthElement, index) => {
   monthElement.addEventListener("click", function () {
     const monthIndex = Array.from(monthElements).indexOf(this) + 1;
-    // console.log(monthIndex);
-    month = monthIndex;
+    console.log(monthIndex, "номер месяца");
+
+    // month = monthIndex;
+
+    preparationFrom.prepMonth = monthIndex;
+    month = preparationFrom.prepMonth;
+    console.log(preparationFrom);
+    dateEntry(dateFromMonthInp, preparationFrom, "prepMonth"); //!
     monthDefinitions();
     monthChoice.classList.add("hide");
   });
@@ -184,6 +205,11 @@ function drawingDays() {
     daysP.textContent = val;
     daysP.addEventListener("click", function () {
       console.log("Clicked on day:", val);
+      preparationFrom.prepDay = val;
+      // console.log(preparationFrom);
+      daysP.style.backgroundColor = "#2879ff";
+      daysP.style.color = "#fff";
+      dateEntry(dateFromDayInp, preparationFrom, "prepDay");
     });
     daysChoiceNum.appendChild(daysP);
   });
@@ -197,24 +223,36 @@ function firstDayMonth(year, month) {
   const fullDate = new Date(year, month, 0);
   const dayOfWeek = fullDate.getDay();
 
-  const dayOfWeekName = Object.keys(daysOfWeek).find(
-    (key) => daysOfWeek[key] === dayOfWeek
+  const dayOfWeekName = Object.keys(DaysOfWeek).find(
+    (key) => DaysOfWeek[key] === dayOfWeek
   );
   //   console.log(dayOfWeekName); // Выводит день недели (например, "Пн" для понедельника)
-  //   console.log(daysOfWeek[dayOfWeekName]);
-  const array = new Array(daysOfWeek[dayOfWeekName]).fill(0);
+  //   console.log(DaysOfWeek[dayOfWeekName]);
+  const array = new Array(DaysOfWeek[dayOfWeekName]).fill(0);
   //   console.log(array); // [0, 0, 0]
 
   const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
   //   console.log(lastDayOfMonth, "кол-во дней в месяце"); // Выводим количество дней в месяце
-  //   console.log(amountOfDays[lastDayOfMonth], "сколько убрать от 31"); // Выводим количество дней в месяце
+  //   console.log(AmountOfDays[lastDayOfMonth], "сколько убрать от 31"); // Выводим количество дней в месяце
 
   dataDayResult = [
     ...array,
-    ...(amountOfDays[lastDayOfMonth] !== 0
-      ? dataDay.slice(0, -amountOfDays[lastDayOfMonth])
-      : dataDay),
+    ...(AmountOfDays[lastDayOfMonth] !== 0
+      ? DataDay.slice(0, -AmountOfDays[lastDayOfMonth])
+      : DataDay),
   ];
   //   console.log(dataDayResult);
   drawingDays();
 }
+
+// ==================================================
+
+// сброс календаря
+dateFromInfoBtn.addEventListener("click", function () {
+  console.log("нажат сброс");
+  // dateFromContentInput.value = "";
+  dateFromDayInp.value = "";
+  dateFromMonthInp.value = "";
+  dateFromYearInp.value = "";
+});
+// ======================

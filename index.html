@@ -9,13 +9,29 @@
   <body class="body">
     <main class="main">
       <div class="calendars">
-        <!--* календарь дата от -->
-        <div class="calendar-date-from">
+        <!--* 📆1️⃣календарь дата от -->
+        <div class="calendar calendar-date-from">
           <!-- --------- -->
-          <section class="date-from__info brd dispFRC inactive-b">
+          <section
+            class="calendar__full-date date-from__info brd dispFRC inactive-b"
+          >
             <div class="date-from__content dispFRC">
               <span>ДАТА ОТ</span>
-              <p>ДД.ММ.ГГГГ</p>
+              <div class="calendar__full-date_inputs">
+                <input type="text" placeholder="ДД" id="date-from-day" />
+                <span>.</span>
+                <input type="text" placeholder="ММ" id="date-from-month" />
+                <span>.</span>
+                <input type="text" placeholder="ГГГГ" id="date-from-year" />
+              </div>
+
+              <!-- <input
+                type="text"
+                id="birthdayInput"
+                name="birthday"
+                placeholder="ДД.ММ.ГГГГ"
+              /> -->
+              <!-- <p>ДД.ММ.ГГГГ</p> -->
               <img src="./src/img/note.svg" alt="" />
             </div>
             <button class="opacity">
@@ -24,7 +40,7 @@
             </button>
           </section>
           <!-- --------- -->
-          <section class="date-from__year brd dispFRC">
+          <section class="date-from__year brd dispFRC opacity">
             <button class="date-from__year_left cp">
               <img src="./src/img/left-arrow.svg" alt="" />
             </button>
@@ -39,7 +55,7 @@
             <div class="year-choice brd hide"><!-- <p>2024</p> --></div>
           </section>
           <!-- --------- -->
-          <section class="date-from__month brd dispFRC">
+          <section class="date-from__month brd dispFRC opacity">
             <button class="date-from__month_left cp">
               <img src="./src/img/left-arrow.svg" alt="" />
             </button>
@@ -81,13 +97,21 @@
           </div>
         </div>
         <!-- --------- -->
-        <!--* календарь дата до -->
+        <!--* 📆2️⃣календарь дата до -->
         <div class="calendar-date-from">
           <!-- --------- -->
-          <section class="date-from__info brd dispFRC inactive-b">
+          <section
+            class="calendar__full-date date-from__info brd dispFRC inactive-b"
+          >
             <div class="date-from__content dispFRC">
               <span>ДАТА ОТ</span>
-              <p>ДД.ММ.ГГГГ</p>
+              <div class="calendar__full-date_inputs">
+                <input type="text" placeholder="ДД" id="date-from-day" />
+                <span>.</span>
+                <input type="text" placeholder="ММ" id="date-from-month" />
+                <span>.</span>
+                <input type="text" placeholder="ГГГГ" id="date-from-year" />
+              </div>
               <img src="./src/img/note.svg" alt="" />
             </div>
             <button class="opacity">
@@ -96,18 +120,22 @@
             </button>
           </section>
           <!-- --------- -->
-          <section class="date-from__year brd dispFRC">
-            <button><img src="./src/img/left-arrow.svg" alt="" /></button>
+          <section class="date-from__year brd dispFRC opacity">
+            <button class="date-from__year_left cp">
+              <img src="./src/img/left-arrow.svg" alt="" />
+            </button>
             <figure class="cp">
               <p>Выберите год &nbsp;</p>
               <img src="./src/img/down-arrow.svg" alt="" />
             </figure>
 
-            <button><img src="./src/img/right-arrow.svg" alt="" /></button>
+            <button class="date-from__year_right cp">
+              <img src="./src/img/right-arrow.svg" alt="" />
+            </button>
             <div class="year-choice brd hide"><!-- <p>2024</p> --></div>
           </section>
           <!-- --------- -->
-          <section class="date-from__month brd dispFRC">
+          <section class="date-from__month brd dispFRC opacity">
             <button class="date-from__month_left cp">
               <img src="./src/img/left-arrow.svg" alt="" />
             </button>

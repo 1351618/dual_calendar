@@ -37,28 +37,12 @@ body {
   justify-content: center;
 }
 
-.date-from {
-  button {
-    height: 25px;
-    width: 25px;
-    border: none;
-  }
-}
-
-.date-to {
-  button {
-    height: 25px;
-    width: 25px;
-    border: none;
-  }
-}
-
-.date-from__info {
+.calendar__full-date {
   button {
     border: none;
     height: 40px;
     width: 30px;
-    background-color: $selectedCellColor;
+    background-color: unset;
     font-size: 21px;
     font-weight: lighter;
     position: relative;
@@ -84,6 +68,87 @@ body {
   }
 }
 
+// .date-from {
+//   button {
+//     height: 25px;
+//     width: 25px;
+//     border: none;
+//   }
+// }
+
+.date-to {
+  button {
+    height: 25px;
+    width: 25px;
+    border: none;
+  }
+}
+// ------------------------
+// общие  дял 2х календарей
+.calendar__full-date_inputs {
+  display: flex;
+  width: 100px;
+  align-items: center;
+
+  input {
+    border: none;
+    // width: auto;
+    height: 35px;
+    background-color: unset;
+    font-size: 16px;
+    color: $textColorMain;
+    text-align: center;
+    &:focus {
+      outline: none;
+      border: none;
+    }
+    &:first-child {
+      width: 25px;
+    }
+    &:nth-child(3) {
+      width: 25px;
+    }
+
+    &:nth-child(5) {
+      width: 40px;
+    }
+  }
+}
+//   }
+// }
+// общие  дял 2х календарей
+//--------------------------
+// .date-from__info {
+//   button {
+//     border: none;
+//     height: 40px;
+//     width: 30px;
+//     background-color: unset;
+//     font-size: 21px;
+//     font-weight: lighter;
+//     position: relative;
+//     p {
+//       position: absolute;
+//       z-index: 10;
+//       background-color: $selectedCellColor;
+//       text-wrap: nowrap;
+//       border: 2px solid $activeBtnColor;
+//       padding: 6px;
+//       top: 45px;
+//       display: none;
+//       transform: translateX(-40%);
+//     }
+//     &:hover {
+//       color: #fff;
+//       background-color: $activeBtnColor;
+//       p {
+//         display: block;
+//         color: $textColorMain;
+//       }
+//     }
+//   }
+// }
+
 .date-from__content {
   height: 40px;
   width: 250px;
@@ -93,6 +158,7 @@ body {
   padding: 4px 0px 4px 10px;
   span {
     color: $textColorMain;
+    text-wrap: nowrap;
   }
   p {
     color: $textColorNotActive;
@@ -119,6 +185,8 @@ body {
   justify-content: space-between;
   color: $activeBtnColor;
   position: relative;
+  background-color: #fff;
+
   button {
     width: 24px;
     border: none;
@@ -176,6 +244,7 @@ body {
   justify-content: space-between;
   color: $activeBtnColor;
   position: relative;
+  background-color: #fff;
 
   button {
     width: 24px;
